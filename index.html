@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- p5 canvas will be injected here -->
+  <div id="sketch-holder" aria-hidden="true"></div>
+
+  <!-- Hero overlay content -->
+  <header class="hero" role="banner">
+    <div class="hero__inner">
+      <h1 class="hero__title">Pieter de Marez Oyens</h1>
+      <p class="hero__subtitle">Desc1 • Desc2 • Desc3</p>
+      <div class="hero__meta">
+        <a class="chip" href="#resume">View resume</a>
+        <a class="chip chip--ghost" href="#">oyenspieter@gmail.com</a>
+      </div>
+    </div>
+    <!-- <div class="hero__fade" aria-hidden="true"></div> -->
+  </header>
+
+  <!-- Scroll content -->
+  <main class="content" role="main">
+    <section id="resume" class="resume">
+      <div class="resume__container">
+        <div class="resume__header">
+          <h2>Resume</h2>
+          <p class="muted">Placeholder summary of experience and strengths.</p>
+        </div>
+
+        <div class="resume__grid">
+          <!-- Left column -->
+          <div class="card">
+            <h3>Experience</h3>
+
+            <article class="item">
+              <div class="item__top">
+                <span class="item__title">Role Title</span>
+                <span class="item__dates">2023 — Present</span>
+              </div>
+              <div class="item__org muted">Company / Studio Name</div>
+              <ul class="bullets">
+                <li>Outcome-oriented bullet point with impact placeholder.</li>
+                <li>Another bullet point describing responsibilities.</li>
+                <li>Tooling/stack placeholder: p5.js, WebGL, etc.</li>
+              </ul>
+            </article>
+
+            <article class="item">
+              <div class="item__top">
+                <span class="item__title">Previous Role</span>
+                <span class="item__dates">2021 — 2023</span>
+              </div>
+              <div class="item__org muted">Organization Name</div>
+              <ul class="bullets">
+                <li>Short bullet describing a project or achievement.</li>
+                <li>Short bullet describing a second achievement.</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- Right column -->
+          <div class="stack">
+            <div class="card">
+              <h3>Skills</h3>
+              <div class="tags">
+                <span class="tag">Generative Design</span>
+                <span class="tag">Creative Coding</span>
+                <span class="tag">p5.js</span>
+                <span class="tag">WebGL</span>
+                <span class="tag">Interaction</span>
+                <span class="tag">Design Systems</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Selected Projects</h3>
+
+              <article class="item">
+                <div class="item__top">
+                  <span class="item__title">Project Name</span>
+                  <span class="item__dates">2025</span>
+                </div>
+                <div class="muted">
+                  One-line description of the work. Link placeholder:
+                  <a href="#">project-url.com</a>
+                </div>
+              </article>
+
+              <article class="item">
+                <div class="item__top">
+                  <span class="item__title">Project Name</span>
+                  <span class="item__dates">2024</span>
+                </div>
+                <div class="muted">
+                  One-line description of the work. Link placeholder:
+                  <a href="#">project-url.com</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="card">
+              <h3>Education</h3>
+              <div class="item">
+                <div class="item__top">
+                  <span class="item__title">Degree / Program</span>
+                  <span class="item__dates">2017 — 2021</span>
+                </div>
+                <div class="item__org muted">School / University</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="resume__footer muted">
+          <span>© Your Name</span>
+          <span>•</span>
+          <a href="#">LinkedIn</a>
+          <span>•</span>
+          <a href="#">GitHub</a>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+  <script src="sketch.js"></script>
+</body>
+
+</html>
