@@ -1,7 +1,10 @@
 let scrollTarget01 = 0; // raw scroll, 0..1
 let scrollSmooth01 = 0; // smoothed scroll, 0..1
 const num_circles = 500;
-const min_diameter = 10;
+const min_diameter = 20;
+
+let lastMs = 0;
+let idle = 0;
 
 function updateScrollTarget() {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -22,19 +25,35 @@ function setup() {
 }
 
 function draw() {
+
+  const now = millis();
+  const dt = lastMs ? (now - lastMs) / 1000 : 1 / 60;
+  lastMs = now;
+
   background(8, 10, 18);
 
   // 0.08–0.2 is a good range. Higher = snappier, lower = smoother.
   const ease = 0.01;
   scrollSmooth01 = lerp(scrollSmooth01, scrollTarget01, ease);
 
+  // Idle drift: always advances, but small
+  // Increase 0.05 -> more motion, decrease -> subtler
+  idle += dt * 0.06;
+
+  const scrollScale = 0.1;
+  const idleScale = 0.1;
+
   // Use smoothed scroll to drive noise "time"
-  const t = scrollSmooth01 * 0.5; // scale controls how far positions travel
+  // const t = scrollSmooth01 * 0.2; // scale controls how far positions travel
+  const t = scrollSmooth01 * scrollScale + idle * idleScale;
+  // var t = scrollTarget01 * 0.2;
+
   draw_circles(t, num_circles)
 
 }
 
 function draw_circles(t, num_circles) {
+  print(t)
   for (let i = 0; i < num_circles; i++) {
     const nx = noise(i * 10, t);
     const ny = noise(i * 10 + 1000, t);

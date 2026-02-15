@@ -43,25 +43,28 @@ canvas {
 .hero {
   position: relative;
   min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
   display: grid;
   place-items: center;
   z-index: 2;
-  padding: 48px 20px;
+  padding: 0px 24px;
+  /* padding: 48px 20px; */
 }
 
 .hero__inner {
   width: min(var(--max), 100%);
   padding: 48px;
   border-radius: calc(var(--radius) + 8px);
-  background: rgba(0, 0, 0, 0.20);
-  /* border: 1px solid rgba(255, 255, 255, 0.10); */
-  backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px);
   box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .hero__title {
   margin: 0 0 10px;
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(20px, 2vw, 32px);
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
@@ -76,6 +79,7 @@ canvas {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
 }
 
 .chip {

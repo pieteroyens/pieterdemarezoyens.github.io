@@ -1,0 +1,303 @@
+:root {
+  --bg: #0b0f1a;
+  --fg: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  /* --card: rgba(15, 20, 35, 0.65); */
+  --card: rgba(0, 0, 0, 0.20);
+  /* --card-border: rgba(255, 255, 255, 0.12); */
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --radius: 18px;
+  --max: 1060px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-feature-settings: "ss01" 1, "cv05" 1, "cv10" 1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* p5 canvas background */
+#sketch-holder {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+canvas {
+  display: block;
+}
+
+/* Hero name: Inter Extra Light */
+.hero h1,
+.hero__title {
+  font-weight: 200;
+  /* Inter ExtraLight */
+}
+
+/* Hero overlay */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  padding: 0px 24px;
+  font-weight: 150;
+  /* padding: 48px 20px; */
+}
+
+.hero__inner {
+  width: min(var(--max), 100%);
+  padding: 48px;
+  text-align: center;
+}
+
+.hero__title {
+  margin: 0 0 10px;
+  font-size: clamp(20px, 2vw, 32px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.hero__subtitle {
+  margin: 0 0 22px;
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--muted);
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.chip:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.chip--ghost {
+  background: transparent;
+}
+
+/* subtle fade to make scroll transition nicer */
+.hero__fade {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(11, 15, 26, 0) 0%, rgba(11, 15, 26, 1) 100%);
+}
+
+/* Content section below */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Resume section */
+.resume {
+  padding: 70px 20px 90px;
+  /* background: rgba(11, 15, 26, 0.2); */
+  /* background: rgba(0, 0, 0, 0.1); */
+  /* border-top: 1px solid rgba(255, 255, 255, 0.08); */
+}
+
+.resume__container {
+  width: min(var(--max), 100%);
+  margin: 0 auto;
+}
+
+.resume__header h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.resume__grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .hero__inner {
+    padding: 28px;
+  }
+
+  .resume__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stack {
+  display: grid;
+  gap: 18px;
+}
+
+.item {
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.item:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.item__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.item__title {
+  font-weight: 600;
+}
+
+.item__dates {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.item__org {
+  margin-top: 4px;
+}
+
+.bullets {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.bullets li {
+  margin: 6px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+a:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.resume__footer {
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---- Add this block at the VERY END of style.css (safe overrides) ---- */
+
+/* Ensure card border var exists (it’s referenced by .card) */
+:root {
+  --card-border: rgba(255, 255, 255, 0.12);
+}
+
+/* Blurry background overlay (covers ~90% of viewport) */
+body::before {
+  content: "";
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 90vw;
+  height: 90vh;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Keep content above overlay (canvas is already z-index: 0) */
+.hero,
+.content {
+  z-index: 2;
+}
+
+/* Center hero content (name/title included) */
+.hero__inner {
+  text-align: center;
+}
+
+.hero__meta {
+  justify-content: center;
+}
+
+/* Disable per-box blur/shadow (overlay handles it now) */
+.hero__inner,
+.card {
+  backdrop-filter: none;
+  box-shadow: none;
+}
