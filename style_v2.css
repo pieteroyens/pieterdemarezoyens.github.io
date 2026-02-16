@@ -119,6 +119,54 @@ canvas {
   background: linear-gradient(to bottom, rgba(11, 15, 26, 0) 0%, rgba(11, 15, 26, 1) 100%);
 }
 
+
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  width: 3vw;
+  height: 3vw;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.0);
+  border: 0px solid rgba(255, 255, 255, 0.14);
+  color: var(--fg);
+
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  /* box-shadow: var(--shadow); */
+}
+
+.scroll-down span {
+  display: none;
+}
+
+.scroll-down::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  display: block;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14'/%3E%3Cpath d='m19 12-7 7-7-7'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14'/%3E%3Cpath d='m19 12-7 7-7-7'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.scroll-down:hover {
+  background: rgba(255, 255, 255, 0.00);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  bottom: 26px;
+}
+
+.scroll-down span {
+  font-size: 30px;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+
 /* Content section below */
 .content {
   position: relative;
@@ -127,10 +175,16 @@ canvas {
 
 /* Resume section */
 .resume {
-  padding: 70px 20px 90px;
+  /* padding: 70px 20px 90px; */
   /* background: rgba(11, 15, 26, 0.2); */
   /* background: rgba(0, 0, 0, 0.1); */
   /* border-top: 1px solid rgba(255, 255, 255, 0.08); */
+  min-height: 100vh;
+  padding-top: clamp(24px, 5vh, 56px);
+  padding-bottom: clamp(24px, 6vh, 72px);
+
+  /* this is the “margin” when scrollIntoView hits it */
+  scroll-margin-top: clamp(16px, 3vh, 40px);
 }
 
 .resume__container {
@@ -269,8 +323,8 @@ body::before {
   position: fixed;
   left: 50%;
   top: 50%;
-  width: 90vw;
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);

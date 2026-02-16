@@ -20,11 +20,15 @@
       <h1 class="hero__title">Pieter de Marez Oyens</h1>
       <p class="hero__subtitle">Desc1 • Desc2 • Desc3</p>
       <div class="hero__meta">
-        <a class="chip" href="#resume">View resume</a>
-        <a class="chip chip--ghost" href="#">oyenspieter@gmail.com</a>
+        <a class="chip chip--ghost" href="#resume">linkedin</a>
+        <a class="chip chip--ghost" href="#resume">github</a>
+        <a class="chip chip--ghost" href="mailto:oyenspieter@gmail.com">email</a>
       </div>
     </div>
     <!-- <div class="hero__fade" aria-hidden="true"></div> -->
+    <button class="scroll-down" type="button" aria-label="Scroll to resume">
+      <span aria-hidden="true">↓</span>
+    </button>
   </header>
 
   <!-- Scroll content -->
@@ -51,6 +55,18 @@
                 <li>Outcome-oriented bullet point with impact placeholder.</li>
                 <li>Another bullet point describing responsibilities.</li>
                 <li>Tooling/stack placeholder: p5.js, WebGL, etc.</li>
+              </ul>
+            </article>
+
+            <article class="item">
+              <div class="item__top">
+                <span class="item__title">Previous Role</span>
+                <span class="item__dates">2021 — 2023</span>
+              </div>
+              <div class="item__org muted">Organization Name</div>
+              <ul class="bullets">
+                <li>Short bullet describing a project or achievement.</li>
+                <li>Short bullet describing a second achievement.</li>
               </ul>
             </article>
 
@@ -134,6 +150,18 @@
   <!-- p5.js -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
   <script src="sketch.js"></script>
+
+  <script>
+    (function () {
+      const btn = document.querySelector(".scroll-down");
+      const target = document.querySelector("#resume");
+      if (!btn || !target) return;
+
+      btn.addEventListener("click", () => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    })();
+  </script>
 </body>
 
 </html>

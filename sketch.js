@@ -1,6 +1,6 @@
 let scrollTarget01 = 0; // raw scroll, 0..1
 let scrollSmooth01 = 0; // smoothed scroll, 0..1
-const num_circles = 500;
+var num_circles = 0;
 const min_diameter = 20;
 
 let lastMs = 0;
@@ -22,6 +22,9 @@ function setup() {
   scrollSmooth01 = scrollTarget01;
 
   window.addEventListener("scroll", updateScrollTarget, { passive: true });
+
+  num_circles = width / 5;
+  print(num_circles)
 }
 
 function draw() {
@@ -53,7 +56,7 @@ function draw() {
 }
 
 function draw_circles(t, num_circles) {
-  print(t)
+  // print(t)
   for (let i = 0; i < num_circles; i++) {
     const nx = noise(i * 10, t);
     const ny = noise(i * 10 + 1000, t);
