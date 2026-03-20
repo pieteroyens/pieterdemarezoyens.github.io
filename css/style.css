@@ -31,11 +31,13 @@ body {
   overflow-x: hidden;
 }
 
-/* p5 canvas background */
+/* p5 canvas background — no pointer events; scroll/listeners use window */
 #sketch-holder {
   position: fixed;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
+  isolation: isolate;
 }
 
 canvas {
@@ -363,5 +365,6 @@ body::before {
   gap: 12px 20px;
   padding: 12px 24px;
   position: relative;
-  z-index: 2;
+  /* Above body::before (1), hero/content (2), and any canvas stacking quirks */
+  z-index: 10;
 }
