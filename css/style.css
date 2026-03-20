@@ -362,4 +362,6 @@ body::before {
   flex-wrap: wrap;
   gap: 12px 20px;
   padding: 12px 24px;
+  position: relative;
+  z-index: 2;
 }
